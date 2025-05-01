@@ -1,0 +1,414 @@
+:root {
+    --russian-violet:   hsla(262, 100%, 8%, 1);
+    --russian-violet-2: hsla(271, 100%, 14%, 1);
+    --persian-indigo:   hsla(271, 85%, 23%, 1);
+    --tekhelet:         hsla(270, 73%, 35%, 1);
+    --french-violet:    hsla(272, 63%, 46%, 1);
+    --amethyst:         hsla(273, 68%, 59%, 1);
+    --heliotrope:       hsla(274, 100%, 75%, 1);
+    --mauve:            hsla(278, 100%, 83%, 1);
+}
+
+@font-face {
+    font-family: Oldenburg;
+    src: url("/getFont");
+}
+
+* {
+    color: #fff;
+}
+
+html {
+    margin: 0;
+    min-height: 100dvh;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(var(--tekhelet), var(--russian-violet-2));
+    font-family: Oldenburg, serif;
+}
+
+header {
+    margin: 5dvh 0;
+    height: 10%;
+}
+
+.title-card {
+    min-width: fit-content;
+    width: 30dvw;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+
+    background-color: var(--russian-violet-2);
+    border-radius: 20px;
+    border: 2px solid var(--tekhelet);
+    box-shadow: -10px 10px var(--persian-indigo);
+}
+
+.title-card :is(h1, h2) {
+    margin: 0;
+}
+
+#main {
+    width: 70dvw;
+    height: auto;
+    margin: 0 auto;
+}
+
+.opts {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1em    ;
+}
+
+.twins {
+    display: flex;
+    gap: 0;
+    align-items: center;
+}
+
+:is(.left-twin, .middle-twin ,.right-twin) {
+    width: 8dvw;
+    height: 2.5rem;
+    font-size: 20px;
+    font-family: Oldenburg;
+
+    border: none;
+}
+
+.left-twin {
+    background-color: #fff;
+    color: var(--russian-violet);
+    border-radius: 15px 0 0 15px;
+}
+.middle-twin {
+    background-color: var(--tekhelet);
+}
+.right-twin {
+    background-color: var(--persian-indigo);
+    color: #fff;
+    border-radius: 0 15px 15px 0;
+}
+
+.selected {
+    outline: 3px solid var(--heliotrope);
+    z-index: 1;
+}
+
+.opt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: fit-content;
+    width: 12dvw;
+}
+.opt label {
+    font-size: 20px;
+}
+
+.opt input[type='range'] {
+    cursor: pointer;
+    background: #fff;
+    accent-color: var(--mauve);
+    height: 0.3rem;
+    border-radius: 5px;
+}
+
+button:hover, .dropdown:hover {
+    cursor: pointer;
+}
+
+    /* Dropdown Button */
+.dropbtn {
+    width: 14dvw;
+    height: 3rem;
+    padding: 16px;
+
+    background-color: var(--mauve);
+    border: none;
+    border-radius: 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.dropbtn span {
+    color: var(--russian-violet);
+    font-size: 20px;
+    font-family: Oldenburg;
+}
+.dropbtn .fa {
+    color: var(--russian-violet);
+    font-size: 20px;
+}
+    
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+    
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 8dvw;
+    left: 1.25rem;
+
+    background-color: var(--russian-violet-2);
+
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content p {
+    margin: 0;
+    color: #fff;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content p:hover {background-color: var(--tekhelet);}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {background-color: var(--heliotrope)} 
+
+.box.imghold {
+    width: fit-content;
+    align-items: start;
+    margin: 0 auto;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.box.imghold.input label {
+    margin: 0;
+    font-size: 30px;
+}
+
+.box.imghold :is(label, h3) {
+    margin: 0;
+    width: fit-content;
+    font-size: 20px;
+    text-align: left;
+}
+
+.imghold img {
+    width: 30dvw;
+    height: auto;
+}
+
+.imghold #input-img {
+    width: auto;
+    height: auto;
+    max-width: 40dvw;
+    max-height: 80dvh;
+    cursor: pointer;
+}
+
+.imgblock {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.imgblock .boxy {
+    width: 2dvw;
+    height: 2dvw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(-130%) translateY(30%);
+
+    background-color: var(--russian-violet-2);
+    border-radius: 10px;
+    opacity: 0;
+
+    transition: opacity ease-in-out 400ms;
+}
+
+.imgblock:hover .boxy {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.imgblock i {
+    width: fit-content;
+    height: fit-content;
+    transform: translateY(-10%);
+    font-size: 20px;
+    border-bottom: 4px solid #fff;
+}
+
+#img-picker {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+    transform: translateY(400%);
+}
+
+.box.foot {
+    width: 70dvw;
+    margin: 10dvh auto 0;
+    background-color: var(--tekhelet);
+
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.foot .box {
+    width: 49%;
+    height: 25dvh;
+    padding: 1rem 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+
+    gap: 2em;
+}
+
+.foot hr {
+    background-color: var(--persian-indigo);
+    color: var(--persian-indigo);
+    width: 4px;
+    height: 25dvh;
+    border: none;
+}
+
+.foot .sticker {
+    padding: 0.5rem 1rem;
+
+    font-size: 15px;
+    border-color: var(--tekhelet);
+    
+    background-color: var(--russian-violet-2);
+    box-shadow: -10px 10px var(--persian-indigo);
+}
+
+.foot .sticker .fa {
+    font-size: 20px;
+}
+
+.member-list {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1.5rem;
+}
+
+.member {
+    width: 5dvw;
+    padding: 1rem 1.5rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    word-break: break-all;
+    background-color: var(--persian-indigo);
+
+    border-radius: 15px;
+    transition: transform 300ms ease-in-out;
+    cursor: default;
+}
+
+.member:hover {
+    transform: scale(1.1);
+}
+
+.m-icon {
+    width: 70px;
+    border-radius: 50%;
+}
+
+.m-socials .fa {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 30px;
+}
+h2 {
+    font-size: 25px;
+}
+.hl {
+    color: var(--mauve);
+}
+a {
+    text-decoration: none;
+}
+
+.box {
+    padding: 3rem;
+}
+
+.box :is(h1, h2, h3) {
+    margin: 0;
+    text-align: center;
+}
+
+.side {
+    display: flex;
+    justify-content: space-around;
+} 
+
+.float {
+    margin: 2rem 10rem;
+}
+
+.center {
+    align-self: center;
+    margin: 0 auto;
+}
+
+.bg {
+    background-color: var(--russian-violet-2);
+}
+
+.sticker {
+    min-width: fit-content;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+
+    color: #fff;
+    text-align: center;
+    background-color: var(--tekhelet);
+    font-size: 25px;
+    font-family: Oldenburg;
+    text-decoration: none;
+    
+    border: 3px solid var(--russian-violet-2);
+    border-radius: 15px;
+    box-shadow: -10px 10px var(--amethyst);
+}
+
+.sticker:hover {
+    background-color: var(--persian-indigo);
+    box-shadow: -10px 10px var(--french-violet);
+}
+
+.hidden {
+    display: none !important;
+}
