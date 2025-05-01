@@ -1,5 +1,3 @@
-// g++ teste.cpp -o teste `pkg-config --cflags --libs opencv4`
-
 #ifndef _IMAGE_HPP_
 #define _IMAGE_HPP_
 
